@@ -42,20 +42,34 @@ All colors MUST be HSL.
     --tech-blue: 210 85% 55%;
     --tech-cyan: 195 85% 60%;
     --tech-purple: 270 75% 65%;
-    --tech-gradient: linear-gradient(135deg, hsl(210 85% 55%), hsl(195 85% 60%));
-    --tech-gradient-dark: linear-gradient(135deg, hsl(210 85% 45%), hsl(195 85% 50%));
+    --tech-green: 142 76% 36%;
+    --tech-orange: 25 95% 53%;
+    
+    /* Advanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 85% 55%), hsl(195 85% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270 75% 65%), hsl(195 85% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(195 85% 60%));
+    --gradient-mesh: 
+      radial-gradient(at 40% 20%, hsl(210 85% 55% / 0.3) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(195 85% 60% / 0.3) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(270 75% 65% / 0.3) 0px, transparent 50%);
+    --gradient-spotlight: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(210 85% 55% / 0.15), transparent 40%);
+    
     --section-background: 0 0% 99%;
     --hero-overlay: linear-gradient(135deg, hsl(210 85% 55% / 0.95), hsl(195 85% 60% / 0.95));
     
-    /* Shadows */
+    /* Enhanced shadows */
     --shadow-soft: 0 4px 20px hsl(220 15% 12% / 0.08);
     --shadow-medium: 0 8px 30px hsl(220 15% 12% / 0.12);
     --shadow-strong: 0 15px 40px hsl(220 15% 12% / 0.15);
     --shadow-glow: 0 0 40px hsl(210 85% 55% / 0.3);
+    --shadow-glow-hover: 0 0 60px hsl(210 85% 55% / 0.4);
+    --shadow-neon: 0 0 20px hsl(195 85% 60% / 0.6);
 
-    /* Animations */
+    /* Advanced animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -119,6 +133,59 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-tech-blue to-tech-cyan bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-tech-purple to-tech-cyan bg-clip-text text-transparent;
+  }
+  
+  .bg-mesh {
+    background: var(--gradient-mesh);
+  }
+  
+  .bg-spotlight {
+    background: var(--gradient-spotlight);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-glow;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow-hover;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .neon-border {
+    @apply border border-tech-cyan/50 shadow-neon;
   }
 }

@@ -67,7 +67,9 @@ export default {
 				},
 				'tech-blue': 'hsl(var(--tech-blue))',
 				'tech-cyan': 'hsl(var(--tech-cyan))',
-				'tech-purple': 'hsl(var(--tech-purple))'
+				'tech-purple': 'hsl(var(--tech-purple))',
+				'tech-green': 'hsl(var(--tech-green))',
+				'tech-orange': 'hsl(var(--tech-orange))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -102,6 +104,14 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'gradient-xy': {
+					'0%, 100%': { 'background-position': '0% 50%' },
+					'50%': { 'background-position': '100% 50%' }
+				},
+				'text-shimmer': {
+					'0%': { 'background-position': '0% 50%' },
+					'100%': { 'background-position': '100% 50%' }
 				}
 			},
 			animation: {
@@ -109,18 +119,28 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fadeIn 0.6s ease-out',
 				'slide-up': 'slideUp 0.5s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'bounce-slow': 'bounce 2s infinite',
+				'spin-slow': 'spin 3s linear infinite',
+				'gradient-xy': 'gradient-xy 3s ease infinite',
+				'text-shimmer': 'text-shimmer 2s ease-in-out infinite alternate'
 			},
 			backgroundImage: {
-				'tech-gradient': 'var(--tech-gradient)',
-				'tech-gradient-dark': 'var(--tech-gradient-dark)',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-accent': 'var(--gradient-accent)',
+				'gradient-mesh': 'var(--gradient-mesh)',
+				'gradient-spotlight': 'var(--gradient-spotlight)',
 				'hero-overlay': 'var(--hero-overlay)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
 				'medium': 'var(--shadow-medium)',
 				'strong': 'var(--shadow-strong)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'glow-hover': 'var(--shadow-glow-hover)',
+				'neon': 'var(--shadow-neon)'
 			}
 		}
 	},

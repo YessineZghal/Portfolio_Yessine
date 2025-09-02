@@ -72,28 +72,34 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-20 bg-section-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="experience" className="py-20 bg-section-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-40 left-10 w-80 h-80 bg-gradient-accent rounded-full opacity-5 blur-3xl"></div>
+      
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-purple">
             Expérience Professionnelle
-            <span className="block text-2xl md:text-3xl font-normal text-muted-foreground mt-2">
-              Parcours en recherche et développement IA
-            </span>
           </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            Parcours en recherche et développement IA
+          </p>
         </div>
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-medium transition-all duration-300 animate-slide-up border-border/50"
+              className="group hover:shadow-glow hover:-translate-y-1 transition-all duration-500 animate-slide-up border-border/50 bg-card/80 backdrop-blur-sm overflow-hidden relative"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardContent className="p-8">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-primary"></div>
+              
+              <CardContent className="p-8 relative">
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-6">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                       {exp.title}
                     </h3>
                     <div className="flex items-center gap-2 text-muted-foreground mb-2">

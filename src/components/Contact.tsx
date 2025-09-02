@@ -4,16 +4,20 @@ import { Mail, Phone, MapPin, Linkedin, Github, Calendar } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-primary rounded-full opacity-5 blur-3xl"></div>
+      <div className="absolute bottom-10 left-20 w-80 h-80 bg-gradient-secondary rounded-full opacity-5 blur-3xl"></div>
+      
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
             Contact
-            <span className="block text-2xl md:text-3xl font-normal text-muted-foreground mt-2">
-              Parlons de vos projets IA
-            </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            Parlons de vos projets IA
+          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
             Intéressé par une collaboration en recherche, développement IA ou consultation ? 
             N'hésitez pas à me contacter pour discuter de vos besoins.
           </p>

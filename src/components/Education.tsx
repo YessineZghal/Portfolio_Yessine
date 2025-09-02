@@ -63,15 +63,18 @@ const Education = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="education" className="py-20 bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-secondary rounded-full opacity-5 blur-3xl"></div>
+      
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
             Formation
-            <span className="block text-2xl md:text-3xl font-normal text-muted-foreground mt-2">
-              Parcours académique et certifications
-            </span>
           </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            Parcours académique et certifications
+          </p>
         </div>
 
         {/* Education Timeline */}

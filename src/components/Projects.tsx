@@ -67,15 +67,19 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 bg-section-background">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-20 bg-section-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-primary rounded-full opacity-5 blur-3xl"></div>
+      <div className="absolute bottom-40 right-20 w-72 h-72 bg-gradient-accent rounded-full opacity-5 blur-3xl"></div>
+      
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-purple">
             Projets & Réalisations
-            <span className="block text-2xl md:text-3xl font-normal text-muted-foreground mt-2">
-              Innovation en IA et recherche appliquée
-            </span>
           </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            Innovation en IA et recherche appliquée
+          </p>
         </div>
 
         {/* Projects */}
