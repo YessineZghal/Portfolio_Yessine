@@ -69,7 +69,9 @@ export default {
 				'tech-cyan': 'hsl(var(--tech-cyan))',
 				'tech-purple': 'hsl(var(--tech-purple))',
 				'tech-green': 'hsl(var(--tech-green))',
-				'tech-orange': 'hsl(var(--tech-orange))'
+				'tech-orange': 'hsl(var(--tech-orange))',
+				'tech-pink': 'hsl(var(--tech-pink))',
+				'tech-yellow': 'hsl(var(--tech-yellow))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

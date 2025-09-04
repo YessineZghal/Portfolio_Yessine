@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,17 @@
     <meta name="description" content="Data Scientist spécialisé en IA, recherche et MLOps. Expert en apprentissage automatique, deep learning et systèmes intelligents. Portfolio professionnel de Yessine Zghal." />
     <meta name="author" content="Yessine Zghal" />
     <meta name="keywords" content="Data Science, AI, Machine Learning, MLOps, Deep Learning, Research, Python, TensorFlow, PyTorch" />
+
+    <!-- Preload critical resources for faster loading -->
+    <link rel="preload" href="/src/assets/profile-photo.jpg" as="image" />
+    <link rel="preload" href="/src/assets/hero-bg.jpg" as="image" />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    
+    <!-- Performance hints -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="format-detection" content="telephone=no" />
 
     <meta property="og:title" content="Yessine Zghal - Data Scientist & AI Engineer Portfolio" />
     <meta property="og:description" content="Data Scientist spécialisé en IA, recherche et MLOps. Expert en apprentissage automatique, deep learning et systèmes intelligents." />
@@ -16,10 +27,21 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+      body { visibility: hidden; }
+      .js-loaded body { visibility: visible; }
+    </style>
   </head>
 
-  <body>
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Mark as loaded to prevent FOUC -->
+    <script>
+      document.documentElement.classList.add('js-loaded');
+    </script>
   </body>
 </html>

@@ -11,18 +11,27 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/20"
+      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
-      {/* Minimal, Clean Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+      {/* Advanced Background Effects */}
+      <div className="absolute inset-0 bg-mesh opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/50 to-background/80"></div>
       
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" 
-           style={{
-             backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-             backgroundSize: '24px 24px'
-           }}>
-      </div>      {/* Content */}
+      {/* Floating Neural Network Inspired Shapes */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary rounded-full opacity-10 animate-float blur-2xl neural-glow"></div>
+      <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-secondary rounded-full opacity-20 animate-pulse-slow blur-lg"></div>
+      <div className="absolute bottom-32 left-32 w-40 h-40 bg-gradient-accent rounded-full opacity-8 animate-float-delayed blur-3xl"></div>
+      <div className="absolute top-1/2 right-20 w-28 h-28 bg-tech-pink/20 rounded-full animate-neural blur-xl"></div>
+      
+      {/* Particle Container */}
+      <div className="particles-container">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-tech-cyan/40 rounded-full animate-ping"></div>
+        <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-tech-purple/60 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-tech-blue/50 rounded-full animate-bounce"></div>
+      </div>
+      
+      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <div className="animate-fade-in">
           {/* Profile Photo with Enhanced Effects */}
@@ -30,27 +39,13 @@ const Hero = () => {
             <div className="relative group">
               <div className="absolute -inset-6 bg-gradient-neural rounded-full opacity-20 group-hover:opacity-40 blur-xl transition-opacity duration-500"></div>
               <div className="absolute -inset-4 bg-gradient-primary rounded-full opacity-30 group-hover:opacity-50 animate-pulse-slow blur-lg"></div>
-              {/* Use a circular wrapper with background-placeholder to avoid square -> dot flicker during image load */}
-              <div className="relative w-48 h-48 img-circle-wrapper border-4 border-white/20 shadow-strong">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.35)), url(${profilePhoto})`,
-                    // keep a subtle blur while the real image loads
-                    filter: 'blur(6px) contrast(0.95)'
-                  }}
-                />
-                <img
-                  src={profilePhoto}
-                  alt={`${t("hero.title")} - Data Scientist & AI Engineer`}
-                  loading="lazy"
-                  decoding="async"
-                  className="relative w-full h-full object-cover rounded-full transform-gpu transition-all duration-500 group-hover:scale-105"
-                />
-              </div>
+              <img
+                src={profilePhoto}
+                alt={`${t("hero.title")} - Data Scientist & AI Engineer`}
+                className="relative w-48 h-48 rounded-full border-4 border-white/20 shadow-strong hover:shadow-neural transition-all duration-500 hover:scale-105 interactive-card"
+              />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-
+              
               {/* Status Indicator */}
               <div className="absolute bottom-4 right-4 w-6 h-6 bg-tech-green rounded-full border-4 border-background shadow-glow animate-pulse">
                 <div className="w-full h-full bg-tech-green rounded-full animate-ping opacity-75"></div>
@@ -137,6 +132,74 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
         <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-tech-cyan/20 to-transparent"></div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+          {/* Subtitle */}
+          <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="glass-effect inline-block px-6 py-3 rounded-full mb-6 hover:bg-white/20 transition-all duration-300">
+              <span className="text-white/90 font-medium">Science des Données — Ingénierie IA</span>
+            </div>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Data Scientist spécialisé dans la recherche et l'apprentissage automatique, 
+              maîtrisant l'ensemble du pipeline MLOps pour des solutions IA innovantes.
+            </p>
+          </div>
+
+          {/* Location & Contact */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mb-10 text-white/80 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300">
+              <MapPin className="h-5 w-5" />
+              <span>Québec, Canada</span>
+            </div>
+            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300">
+              <Mail className="h-5 w-5" />
+              <span>yessine.zghal.1@ulaval.ca</span>
+            </div>
+            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300">
+              <span>418-905-0170</span>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <Button 
+              variant="default" 
+              size="lg"
+              className="bg-white text-tech-blue hover:bg-white/90 shadow-medium hover:shadow-glow hover:scale-105 transition-all duration-300 neon-border"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Télécharger CV
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="glass-effect border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+            >
+              <Linkedin className="mr-2 h-5 w-5" />
+              LinkedIn
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="glass-effect border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+            >
+              <Github className="mr-2 h-5 w-5" />
+              GitHub
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+        </div>
       </div>
     </section>
   );

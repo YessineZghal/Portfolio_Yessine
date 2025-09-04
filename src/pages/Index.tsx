@@ -1,21 +1,25 @@
 import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+import Hero from "@/components/HeroClean";
+import About from "@/components/About";
+import Skills from "@/components/SkillsNew";
+import Experience from "@/components/ExperienceNew";
+import Education from "@/components/EducationNew";
+import Projects from "@/components/ProjectsNew";
+import Contact from "@/components/ContactProfessional";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       <Navigation />
       <Hero />
+      <About />
       <Skills />
       <Experience />
       <Education />
       <Projects />
       <Contact />
+      <ScrollToTop />
     </div>
   );
 };
