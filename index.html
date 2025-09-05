@@ -8,6 +8,9 @@
     <meta name="author" content="Yessine Zghal" />
     <meta name="keywords" content="Data Science, AI, Machine Learning, MLOps, Deep Learning, Research, Python, TensorFlow, PyTorch" />
 
+    <!-- ONLY YZ SVG Favicon - No ICO -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?remove-lovable=true&t=1725477800" />
+
     <!-- Preload critical resources for faster loading -->
     <link rel="preload" href="/src/assets/profile-photo.jpg" as="image" />
     <link rel="preload" href="/src/assets/hero-bg.jpg" as="image" />
@@ -16,23 +19,40 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     
     <!-- Performance hints -->
-    <meta name="theme-color" content="#3b82f6" />
+    <meta name="theme-color" content="#2563EB" />
     <meta name="format-detection" content="telephone=no" />
 
     <meta property="og:title" content="Yessine Zghal - Data Scientist & AI Engineer Portfolio" />
     <meta property="og:description" content="Data Scientist spécialisé en IA, recherche et MLOps. Expert en apprentissage automatique, deep learning et systèmes intelligents." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://yessinezghal.github.io" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="Yessine Zghal - Data Scientist & AI Engineer" />
+    <meta name="twitter:description" content="Expert en IA, apprentissage automatique et systèmes intelligents" />
     
     <!-- Prevent FOUC (Flash of Unstyled Content) -->
     <style>
       body { visibility: hidden; }
       .js-loaded body { visibility: visible; }
     </style>
+    
+    <!-- Force favicon reload -->
+    <script>
+      // Force favicon reload to remove Lovable cache
+      (function() {
+        const links = document.querySelectorAll('link[rel*="icon"]');
+        links.forEach(link => link.remove());
+        
+        const timestamp = Date.now();
+        
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/svg+xml';
+        favicon.href = `/favicon.svg?t=${timestamp}`;
+        document.head.appendChild(favicon);
+      })();
+    </script>
   </head>
 
   <body class="antialiased">

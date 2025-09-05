@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import YZIcon from '@/components/YZIcon';
 
 const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,8 +40,18 @@ const LoadingScreen = () => {
         {/* Logo */}
         <div className="mb-12">
           <div className="inline-block relative">
-            <div className="text-6xl font-black text-gradient-neural glow-text animate-pulse">YZ</div>
-            <div className="absolute inset-0 text-6xl font-black text-gradient-neural animate-ping opacity-20">YZ</div>
+            {/* Main YZ Icon with pulse animation */}
+            <div className="animate-pulse">
+              <YZIcon size={120} variant="gradient" />
+            </div>
+            {/* Ping effect overlay */}
+            <div className="absolute inset-0 animate-ping opacity-20">
+              <YZIcon size={120} variant="outlined" />
+            </div>
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 animate-pulse opacity-30 blur-lg">
+              <YZIcon size={120} variant="gradient" />
+            </div>
           </div>
         </div>
 

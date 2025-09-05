@@ -5,6 +5,7 @@ import Skills from "@/components/SkillsNew";
 import Experience from "@/components/ExperienceNew";
 import Education from "@/components/EducationNew";
 import Projects from "@/components/ProjectsNew";
+import PublicationsAwards from "@/components/PublicationsAwards";
 import Contact from "@/components/ContactProfessional";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <Experience />
       <Education />
       <Projects />
+      <PublicationsAwards />
       <Contact />
       <ScrollToTop />
     </div>

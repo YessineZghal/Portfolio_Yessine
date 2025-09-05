@@ -6,46 +6,46 @@ const Education = () => {
 
   const education = [
     {
-      degree: "Master's with Thesis in Management Sciences — Operations and Decision Systems",
-      school: "Université Laval",
+      degree: t('education.masters.degree'),
+      school: t('education.masters.school'),
       location: "Quebec City, QC, Canada",
       period: "Jan. 2024 - Dec. 2025",
-      description: "Advanced graduate program focusing on operations research, decision systems, and artificial intelligence applications in management sciences.",
+      description: t('education.masters.description'),
       gpa: "GPA 3.9",
       coursework: ["GIF-7010", "GLO-7027", "MQT-7014", "MQT-7015", "MQT-6021", "ADM-7900 (Time Series & XAI)"],
-      achievements: ["Research in Explainable AI for Medical Applications", "CIRRELT Lab Research Assistant", "Publications in AI/ML conferences"],
-      status: "In Progress"
+      achievements: [t('education.masters.achievement1'), t('education.masters.achievement2'), t('education.masters.achievement3')],
+      status: t('education.status.in_progress')
     },
     {
-      degree: "Research Master's in Intelligent Systems",
-      school: "National School of Computer Science (ENSI)",
+      degree: t('education.research_masters.degree'),
+      school: t('education.research_masters.school'),
       location: "Manouba, Tunisia",
       period: "Sept. 2022 - Sept. 2023",
-      description: "Specialized master's program in artificial intelligence and intelligent systems with focus on advanced machine learning techniques.",
+      description: t('education.research_masters.description'),
       coursework: ["Data Mining", "Data Engineering", "Robotics", "Advanced AI Systems"],
-      achievements: ["Research in AI and Machine Learning", "Advanced coursework in intelligent systems", "Preparation for international graduate studies"],
-      status: "Completed"
+      achievements: [t('education.research_masters.achievement1'), t('education.research_masters.achievement2'), t('education.research_masters.achievement3')],
+      status: t('education.status.completed')
     },
     {
-      degree: "Engineering Degree in Computer Science",
-      school: "National School of Computer Science (ENSI)",
+      degree: t('education.engineering.degree'),
+      school: t('education.engineering.school'),
       location: "Manouba, Tunisia", 
       period: "Sept. 2020 - Sept. 2023",
-      description: "Comprehensive engineering program covering all aspects of computer science with specialization in machine learning, distributed systems, and modern software engineering.",
+      description: t('education.engineering.description'),
       coursework: ["ML/DL", "Distributed Databases", "Distributed Systems", "Networks", "Security", "Parallel Architecture", "IoT"],
-      achievements: ["Strong foundation in computer science fundamentals", "Specialized in AI and distributed systems", "Practical experience in modern technologies"],
-      status: "Completed"
+      achievements: [t('education.engineering.achievement1'), t('education.engineering.achievement2'), t('education.engineering.achievement3')],
+      status: t('education.status.completed')
     },
     {
-      degree: "Preparatory Institute for Engineering Studies",
-      school: "Physics and Chemistry Track",
+      degree: t('education.preparatory.degree'),
+      school: t('education.preparatory.school'),
       location: "Sfax, Tunisia",
       period: "Sept. 2018 - Jun. 2020",
-      description: "Intensive preparatory program focusing on advanced mathematics, physics, and chemistry to prepare for competitive engineering school admissions.",
+      description: t('education.preparatory.description'),
       achievement: "National exam rank: 85 / 1200",
       coursework: ["Advanced Mathematics", "Physics", "Chemistry", "Engineering Fundamentals"],
-      achievements: ["Top 7% national ranking", "Strong mathematical and scientific foundation", "Admission to prestigious ENSI"],
-      status: "Completed"
+      achievements: [t('education.preparatory.achievement1'), t('education.preparatory.achievement2'), t('education.preparatory.achievement3')],
+      status: t('education.status.completed')
     }
   ];
 
@@ -90,7 +90,7 @@ const Education = () => {
                   {/* GPA Display */}
                   {edu.gpa && (
                     <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Academic Performance:</h4>
+                      <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">{t('education.academic_performance')}:</h4>
                       <p className="text-sm text-blue-700 dark:text-blue-400 italic">{edu.gpa}</p>
                     </div>
                   )}
@@ -98,7 +98,7 @@ const Education = () => {
                   {/* National Exam Rank for Preparatory */}
                   {edu.achievement && (
                     <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">Academic Achievement:</h4>
+                      <h4 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">{t('education.academic_achievement')}:</h4>
                       <p className="text-sm text-yellow-700 dark:text-yellow-400 italic">{edu.achievement}</p>
                     </div>
                   )}
@@ -106,7 +106,7 @@ const Education = () => {
                   {/* Key Coursework */}
                   {edu.coursework && (
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-slate-900 dark:text-white">Key Coursework:</h4>
+                      <h4 className="font-semibold text-slate-900 dark:text-white">{t('education.key_coursework')}:</h4>
                       <div className="flex flex-wrap gap-2">
                         {edu.coursework.map((course, courseIndex) => (
                           <span
@@ -121,7 +121,7 @@ const Education = () => {
                   )}
                   
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-slate-900 dark:text-white">Achievements & Highlights:</h4>
+                    <h4 className="font-semibold text-slate-900 dark:text-white">{t('education.achievements_highlights')}:</h4>
                     <ul className="space-y-1">
                       {edu.achievements.map((achievement, achIndex) => (
                         <li key={achIndex} className="text-slate-600 dark:text-slate-400 flex items-start gap-2">

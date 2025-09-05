@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import YZIcon from "@/components/YZIcon";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +36,7 @@ const Navigation = () => {
     { name: t("nav.experience"), href: "#experience" },
     { name: t("nav.education"), href: "#education" },
     { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.publications"), href: "#publications-awards" },
     { name: t("nav.contact"), href: "#contact" },
   ];
 
@@ -63,9 +65,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold tracking-tight">
-              Y<span className="text-primary">Z</span>
-            </span>
+            <div className="flex items-center gap-3">
+              <YZIcon size={36} variant="default" className="hover:scale-110 transition-transform duration-200" />
+              <span className="text-xl font-bold tracking-tight text-foreground hidden sm:block">
+                Yessine Zghal
+              </span>
+            </div>
           </div>
 
           {/* Desktop Menu */}

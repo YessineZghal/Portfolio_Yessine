@@ -6,109 +6,109 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Research Assistant — Explainable AI (XAI)",
-      company: "CIRRELT Lab, Université Laval",
+      title: t('experience.research_xai.title'),
+      company: t('experience.research_xai.company'),
       location: "Quebec City, QC",
       period: "May 2025 - Present",
       type: "Full-time",
-      description: "Leading advanced research in explainable AI for medical applications, focusing on glucose monitoring and forecasting systems.",
+      description: t('experience.research_xai.description'),
       skills: ["Explainable AI", "Graph Neural Networks", "LSTM", "Medical AI", "Counterfactual Analysis"],
       achievements: [
-        "Designed novel instance-based counterfactual explanation framework for CGM forecasting",
-        "Built graph attention mechanism for temporal feature interactions and lagged causality",
-        "Developed dual-graph training system for hypoglycemia pattern identification",
-        "Created counterfactual engine for transforming unsafe forecasts into safe ones"
+        t('experience.research_xai.achievement1'),
+        t('experience.research_xai.achievement2'),
+        t('experience.research_xai.achievement3'),
+        t('experience.research_xai.achievement4')
       ]
     },
     {
-      title: "Research Assistant — AI Engineer",
-      company: "CIRRELT Laboratory, Laval University",
+      title: t('experience.research_ai.title'),
+      company: t('experience.research_ai.company'),
       location: "Quebec City, QC",
       period: "January 2025 - April 2025",
       type: "Full-time",
-      description: "Advanced AI research focusing on large language models and educational technology integration.",
+      description: t('experience.research_ai.description'),
       skills: ["LLMs", "GPT-4", "RAG Systems", "QLoRA", "Educational AI"],
       achievements: [
-        "Prepared and annotated large educational datasets using GPT-4 for automated labeling",
-        "Fine-tuned DeepSeek-8B LLM for intelligent question-answering assistance",
-        "Applied parameter-efficient fine-tuning techniques (QLoRA, low-rank adaptation)",
-        "Designed and deployed RAG system integrated with I4EvoSim education platform"
+        t('experience.research_ai.achievement1'),
+        t('experience.research_ai.achievement2'),
+        t('experience.research_ai.achievement3'),
+        t('experience.research_ai.achievement4')
       ]
     },
     {
-      title: "Research Assistant - Deep Learning",
-      company: "CIRRELT Laboratory, Laval University",
+      title: t('experience.research_dl.title'),
+      company: t('experience.research_dl.company'),
       location: "Quebec City, QC", 
       period: "Sept. 2024 - April 2025",
       type: "Full-time",
-      description: "Specialized research in Physics-Informed Neural Networks and advanced deep learning methodologies.",
+      description: t('experience.research_dl.description'),
       skills: ["Physics-Informed Neural Networks", "Hamilton-Jacobi-Bellman", "Reinforcement Learning", "Scientific Computing"],
       achievements: [
-        "Developed PINN framework for Hamilton-Jacobi-Bellman equations with discrete control",
-        "Transformed classical HJB formulation into differentiable deep learning method",
-        "Integrated PINN with reinforcement learning for high-dimensional control tasks",
-        "Validated framework against analytical solutions ensuring theoretical robustness",
-        "Contributed to scientific article documenting methodology and benchmarks"
+        t('experience.research_dl.achievement1'),
+        t('experience.research_dl.achievement2'),
+        t('experience.research_dl.achievement3'),
+        t('experience.research_dl.achievement4'),
+        t('experience.research_dl.achievement5')
       ]
     },
     {
-      title: "Research Assistant - Data Science & Deep Learning",
-      company: "CIRRELT Lab, Université Laval",
+      title: t('experience.research_ds.title'),
+      company: t('experience.research_ds.company'),
       location: "Quebec City, QC",
       period: "Sept. 2023 - Aug. 2024",
       type: "Full-time", 
-      description: "Comprehensive research in medical data science, focusing on continuous glucose monitoring and advanced forecasting models.",
+      description: t('experience.research_ds.description'),
       skills: ["Medical Data Science", "Time Series", "LSTM", "Transformer", "Distributed Computing"],
       achievements: [
-        "Processed and engineered features from T1DEXI datasets for pediatric CGM research",
-        "Developed reproducible pipelines for multi-source data ingestion and quality control",
-        "Designed advanced forecasting models for Continuous Glucose Monitoring (CGM)",
-        "Trained models on Compute Canada clusters using distributed GPU resources",
-        "Conducted clinical evaluations and applied explainable AI methods for glucose trajectories"
+        t('experience.research_ds.achievement1'),
+        t('experience.research_ds.achievement2'),
+        t('experience.research_ds.achievement3'),
+        t('experience.research_ds.achievement4'),
+        t('experience.research_ds.achievement5')
       ]
     },
     {
-      title: "Research Intern - Data Science",
-      company: "CIRRELT Lab, Université Laval",
+      title: t('experience.research_intern.title'),
+      company: t('experience.research_intern.company'),
       location: "Quebec City, QC",
       period: "Feb. 2023 - Aug. 2023",
       type: "Full-time",
-      description: "Initial research experience focusing on automated machine learning pipelines and model optimization for medical applications.",
+      description: t('experience.research_intern.description'),
       skills: ["AutoML", "T1DEXI", "XGBoost", "Random Forest", "Hyperparameter Optimization"],
       achievements: [
-        "Built automated pipeline for T1DEXI adult patient selection and time-series integration",
-        "Developed GMSE as custom loss function integrated into XGBoost and deep learning models",
-        "Designed 30-minute CGM forecasting framework using neural architectures",
-        "Applied Optuna for hyperparameter tuning and Keras Tuner for deep learning optimization",
-        "Incorporated SHAP method for XGBoost explainability and feature importance analysis"
+        t('experience.research_intern.achievement1'),
+        t('experience.research_intern.achievement2'),
+        t('experience.research_intern.achievement3'),
+        t('experience.research_intern.achievement4'),
+        t('experience.research_intern.achievement5')
       ]
     },
     {
-      title: "AI Intern",
-      company: "TALAN Tunisia",
+      title: t('experience.ai_intern_talan.title'),
+      company: t('experience.ai_intern_talan.company'),
       location: "On-site",
       period: "Jul. 2022 - Aug. 2022",
       type: "Full-time",
-      description: "Industrial AI internship focusing on large-scale data pipeline development and real-time processing systems.",
+      description: t('experience.ai_intern_talan.description'),
       skills: ["Azure", "Apache Kafka", "Apache Spark", "MongoDB", "Real-time Processing"],
       achievements: [
-        "Designed and deployed data pipeline on Azure for large-scale voice broadcasting workflows",
-        "Implemented real-time event streaming with Apache Kafka and parallel data processing",
-        "Optimized data storage and retrieval by integrating MongoDB as persistence layer",
-        "Ensured low-latency and fault-tolerant data flow for analytics and reporting"
+        t('experience.ai_intern_talan.achievement1'),
+        t('experience.ai_intern_talan.achievement2'),
+        t('experience.ai_intern_talan.achievement3'),
+        t('experience.ai_intern_talan.achievement4')
       ]
     },
     {
-      title: "AI Intern",
-      company: "Digital Research Center of Sfax",
+      title: t('experience.ai_intern_sfax.title'),
+      company: t('experience.ai_intern_sfax.company'),
       location: "Remote",
       period: "Jul. 2021 - Aug. 2021", 
       type: "Full-time",
-      description: "Early career experience in financial AI, developing predictive models for stock market analysis.",
+      description: t('experience.ai_intern_sfax.description'),
       skills: ["Financial AI", "Stock Forecasting", "Web Development", "Analytics Dashboard"],
       achievements: [
-        "Developed web application for stock forecasting with analytical dashboard",
-        "Created predictive models for financial market analysis and trend identification"
+        t('experience.ai_intern_sfax.achievement1'),
+        t('experience.ai_intern_sfax.achievement2')
       ]
     }
   ];
@@ -149,7 +149,7 @@ const Experience = () => {
                   {/* Key Achievements */}
                   {exp.achievements && (
                     <div className="space-y-2">
-                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">Key Achievements</h4>
+                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">{t('experience.key_achievements')}</h4>
                       <ul className="space-y-1">
                         {exp.achievements.map((achievement, achIndex) => (
                           <li key={achIndex} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
