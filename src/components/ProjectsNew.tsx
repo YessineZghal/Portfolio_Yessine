@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, X, ArrowRight } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import sumoImage from '../assets/sumo.png';
+import kubflowImage from '../assets/kubflowmidset.jpg';
+import hospitalImage from '../assets/hospital.png';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -13,8 +16,8 @@ const Projects = () => {
       title: t('projects.traffic_rl.title'),
       shortDescription: t('projects.traffic_rl.short'),
       fullDescription: t('projects.traffic_rl.full'),
-      image: "/placeholder.svg",
-      technologies: ["DQN", "DDQN", "DRQN", "SUMO", "Multi-Agent RL", "Docker", "Jenkins", "MLOps", "Python", "TensorFlow"],
+      image: sumoImage,
+      technologies: ["Deep Q-Network", "SUMO", "Python", "TensorFlow", "Reinforcement Learning", "Traffic Simulation", "Neural Networks", "OpenAI Gym"],
       objective: t('projects.traffic_rl.objective'),
       process: [
         t('projects.traffic_rl.step1'),
@@ -25,16 +28,14 @@ const Projects = () => {
       ],
       input: t('projects.traffic_rl.input'),
       output: t('projects.traffic_rl.output'),
-      results: t('projects.traffic_rl.results'),
-      github: "https://github.com/yessinezghal/traffic-rl-control",
-      demo: "https://traffic-demo.example.com"
+      results: t('projects.traffic_rl.results')
     },
     {
       id: 2,
       title: t('projects.kubeflow.title'),
       shortDescription: t('projects.kubeflow.short'),
       fullDescription: t('projects.kubeflow.full'),
-      image: "/placeholder.svg",
+      image: kubflowImage,
       technologies: ["Kubeflow", "TensorFlow", "Keras", "Docker", "GKE", "KServe", "MinIO", "CNN", "Python", "Kubernetes"],
       objective: t('projects.kubeflow.objective'),
       process: [
@@ -46,16 +47,14 @@ const Projects = () => {
       ],
       input: t('projects.kubeflow.input'),
       output: t('projects.kubeflow.output'),
-      results: t('projects.kubeflow.results'),
-      github: "https://github.com/yessinezghal/kubeflow-mnist-pipeline",
-      demo: "https://kubeflow-demo.example.com"
+      results: t('projects.kubeflow.results')
     },
     {
       id: 3,
       title: t('projects.apple_cv.title'),
       shortDescription: t('projects.apple_cv.short'),
       fullDescription: t('projects.apple_cv.full'),
-      image: "/placeholder.svg",
+      image: null,
       technologies: ["CNN", "Computer Vision", "TensorFlow", "Keras", "ONNX", "FastAPI", "Jenkins", "Data Augmentation", "Python", "Docker"],
       objective: t('projects.apple_cv.objective'),
       process: [
@@ -67,16 +66,14 @@ const Projects = () => {
       ],
       input: t('projects.apple_cv.input'),
       output: t('projects.apple_cv.output'),
-      results: t('projects.apple_cv.results'),
-      github: "https://github.com/yessinezghal/apple-classifier-cv",
-      demo: "https://apple-classifier-demo.example.com"
+      results: t('projects.apple_cv.results')
     },
     {
       id: 4,
       title: t('projects.hospital.title'),
       shortDescription: t('projects.hospital.short'),
       fullDescription: t('projects.hospital.full'),
-      image: "/placeholder.svg",
+      image: hospitalImage,
       technologies: ["Laravel", "Bootstrap", "MySQL", "jQuery", "PHP", "JavaScript", "CSS", "HTML"],
       objective: t('projects.hospital.objective'),
       process: [
@@ -88,9 +85,7 @@ const Projects = () => {
       ],
       input: t('projects.hospital.input'),
       output: t('projects.hospital.output'),
-      results: t('projects.hospital.results'),
-      github: "https://github.com/yessinezghal/hospital-management",
-      demo: "https://hospital-demo.example.com"
+      results: t('projects.hospital.results')
     }
   ];
 
@@ -110,6 +105,28 @@ const Projects = () => {
             >
               <X className="h-5 w-5" />
             </Button>
+          </div>
+
+          {/* Project Image */}
+          <div className="mb-8">
+            <div className="project-modal-image w-full bg-slate-200 dark:bg-slate-600 rounded-xl overflow-hidden">
+              {project.image ? (
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="project-image w-full h-full"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    const placeholder = target.nextElementSibling as HTMLElement;
+                    target.style.display = 'none';
+                    if (placeholder) placeholder.style.display = 'flex';
+                  }}
+                />
+              ) : null}
+              <div className={`project-image-placeholder w-full h-full ${project.image ? 'hidden' : 'flex'}`}>
+                {project.title}
+              </div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -181,17 +198,6 @@ const Projects = () => {
                   {project.results}
                 </p>
               </div>
-
-              <div className="flex gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <Github className="mr-2 h-4 w-4" />
-                  {t('projects.view_code')}
-                </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  {t('projects.live_demo')}
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -219,8 +225,23 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
             >
               <div className="space-y-4">
-                <div className="w-full h-48 bg-slate-200 dark:bg-slate-600 rounded-xl flex items-center justify-center">
-                  <span className="text-slate-500 dark:text-slate-400">Project Image</span>
+                <div className="project-card-image w-full bg-slate-200 dark:bg-slate-600 rounded-xl overflow-hidden">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="project-image w-full h-full"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        const placeholder = target.nextElementSibling as HTMLElement;
+                        target.style.display = 'none';
+                        if (placeholder) placeholder.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div className={`project-image-placeholder w-full h-full ${project.image ? 'hidden' : 'flex'}`}>
+                    {project.title}
+                  </div>
                 </div>
                 
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">

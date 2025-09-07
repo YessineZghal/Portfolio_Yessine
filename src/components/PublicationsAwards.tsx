@@ -3,10 +3,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import pcdImage from "@/assets/pcd.jpeg";
 import tdsImage from "@/assets/tds.jpeg";
+import PDFViewer from "./PDFViewer";
 
 const PublicationsAwards = () => {
   const { t, language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isPDFOpen, setIsPDFOpen] = useState(false);
+  const [selectedPDF, setSelectedPDF] = useState(null);
 
   const getPublicationData = () => ({
     title: language === 'fr' ? t('publications.paper_title') : "A data-driven personalized approach to predict blood glucose levels in type-1 diabetes patients exercising in free-living conditions",
@@ -148,23 +151,23 @@ const PublicationsAwards = () => {
               {publications.map((pub, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700"
+                  className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700"
                 >
                   <div className="space-y-4">
-                    <div className="flex flex-wrap items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 leading-tight">
                           {pub.title}
                         </h4>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold mb-1">
+                        <p className="text-blue-600 dark:text-blue-400 font-semibold mb-1 text-sm sm:text-base">
                           {pub.journal} {pub.volume && `• ${pub.volume}`} {pub.pages && `• ${pub.pages}`}
                         </p>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm">
+                        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
                           {pub.authors.join(", ")} • {pub.year}
                         </p>
                       </div>
-                      <div className="flex flex-col items-end gap-2">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      <div className="flex flex-row sm:flex-col items-start sm:items-end gap-2 sm:gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${
                           pub.status === 'Published' 
                             ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300'
                             : pub.status === 'Under Review'
@@ -173,70 +176,71 @@ const PublicationsAwards = () => {
                         }`}>
                           {pub.status}
                         </span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
+                        <span className="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
                           {t('publications.citations')}: {pub.citationCount}
                         </span>
                       </div>
                     </div>
                     
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
                       {pub.abstract}
                     </p>
                     
                     {pub.highlights && (
                       <div className="space-y-2">
-                        <h5 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+                        <h5 className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
                           {language === 'fr' ? 'Points Clés' : 'Key Highlights'}
                         </h5>
                         <ul className="space-y-1">
                           {pub.highlights.map((highlight, highlightIndex) => (
-                            <li key={highlightIndex} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
-                              <span className="text-green-500 mt-1">•</span>
-                              {highlight}
+                            <li key={highlightIndex} className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                              <span className="text-green-500 mt-1 text-xs">•</span>
+                              <span className="flex-1">{highlight}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     )}
                     
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                       {pub.keywords.map((keyword, keyIndex) => (
                         <span
                           key={keyIndex}
-                          className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-sm"
+                          className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded text-xs sm:text-sm"
                         >
                           {keyword}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t border-slate-200 dark:border-slate-700 gap-4">
                       <div className="flex items-center gap-2 text-sm">
                         <ExternalLink className="h-4 w-4 text-slate-500" />
-                        <span className="text-slate-500 dark:text-slate-400">DOI: {pub.doi}</span>
+                        <span className="text-slate-500 dark:text-slate-400 break-all">DOI: {pub.doi}</span>
                       </div>
                       
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         {pub.pdfPath && (
-                          <a
-                            href={pub.pdfPath}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors duration-200"
+                          <button
+                            onClick={() => {
+                              setSelectedPDF({ url: pub.pdfPath, title: pub.title });
+                              setIsPDFOpen(true);
+                            }}
+                            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors duration-200 min-h-[44px] touch-manipulation"
                           >
                             <BookOpen className="h-4 w-4" />
-                            {t('publications.download_pdf')}
-                          </a>
+                            <span className="text-sm">{t('publications.view_pdf') || t('publications.download_pdf')}</span>
+                          </button>
                         )}
                         {pub.url && (
                           <a
                             href={pub.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+                            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200 min-h-[44px] touch-manipulation"
                           >
                             <ExternalLink className="h-4 w-4" />
-                            {t('publications.view_online')}
+                            <span className="text-sm">{t('publications.view_online')}</span>
                           </a>
                         )}
                       </div>
@@ -441,6 +445,19 @@ const PublicationsAwards = () => {
           image={selectedImage.image}
           title={selectedImage.title}
           onClose={() => setSelectedImage(null)}
+        />
+      )}
+      
+      {/* PDF Viewer Modal */}
+      {selectedPDF && (
+        <PDFViewer
+          pdfUrl={selectedPDF.url}
+          isOpen={isPDFOpen}
+          onClose={() => {
+            setIsPDFOpen(false);
+            setSelectedPDF(null);
+          }}
+          title={selectedPDF.title}
         />
       )}
     </section>

@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Linkedin, Github, Download } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 import yessinePhoto from "@/assets/yessine.jpg";
+import PDFViewer from "./PDFViewer";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [isPDFOpen, setIsPDFOpen] = useState(false);
 
   return (
     <section 
@@ -63,7 +66,7 @@ const Hero = () => {
                 variant="ghost" 
                 size="lg"
                 className="text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-full transition-all duration-200"
-                onClick={() => window.open('/RS_Yessine_ZGHAL.pdf', '_blank')}
+                onClick={() => setIsPDFOpen(true)}
               >
                 <Download className="mr-2 h-5 w-5" />
                 {t("hero.download_cv")}
@@ -149,6 +152,14 @@ const Hero = () => {
           <div className="w-1 h-3 bg-slate-400/70 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
+
+      {/* PDF Viewer Modal */}
+      <PDFViewer
+        pdfUrl="/RS_Yessine_ZGHAL.pdf"
+        isOpen={isPDFOpen}
+        onClose={() => setIsPDFOpen(false)}
+        title={t("hero.resume_title") || "Yessine Zghal - Resume"}
+      />
     </section>
   );
 };

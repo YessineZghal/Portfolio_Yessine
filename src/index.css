@@ -482,4 +482,47 @@
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
+
+  /* Project Images Styling */
+  .project-image {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .project-image:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+
+  .project-card-image {
+    height: 192px; /* h-48 equivalent */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .project-modal-image {
+    height: 256px; /* Default height */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  @media (min-width: 768px) {
+    .project-modal-image {
+      height: 320px; /* md:h-80 equivalent */
+    }
+  }
+
+  /* Project image loading placeholder */
+  .project-image-placeholder {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
 }

@@ -137,7 +137,22 @@ const translations = {
     'publications.awards_recognition': 'Awards & Recognition',
     'publications.conferences_presentations': 'Conferences & Presentations',
     'publications.download_pdf': 'Download PDF',
+    'publications.view_pdf': 'View PDF',
     'publications.view_online': 'View Online',
+    
+    // PDF Viewer
+    'pdf.mobile_title': 'View Resume',
+    'pdf.mobile_description': 'For the best viewing experience on mobile, download the PDF or open in fullscreen.',
+    'pdf.open_fullscreen': 'Open in Browser',
+    'pdf.zoom_in': 'Zoom In',
+    'pdf.zoom_out': 'Zoom Out',
+    'pdf.rotate': 'Rotate',
+    'pdf.download': 'Download',
+    'pdf.close': 'Close',
+    
+    // Hero Section
+    'hero.resume_title': 'Yessine Zghal - Resume',
+    'hero.download': 'Download',
     
     // Awards Section
     'projects.awards': 'Awards & Conferences',
@@ -446,7 +461,22 @@ const translations = {
     'publications.awards_recognition': 'Prix et Reconnaissance',
     'publications.conferences_presentations': 'Conférences et Présentations',
     'publications.download_pdf': 'Télécharger PDF',
+    'publications.view_pdf': 'Voir PDF',
     'publications.view_online': 'Voir en Ligne',
+    
+    // PDF Viewer
+    'pdf.mobile_title': 'Voir le CV',
+    'pdf.mobile_description': 'Pour une meilleure expérience de visualisation sur mobile, téléchargez le PDF ou ouvrez en plein écran.',
+    'pdf.open_fullscreen': 'Ouvrir dans le Navigateur',
+    'pdf.zoom_in': 'Zoom Avant',
+    'pdf.zoom_out': 'Zoom Arrière',
+    'pdf.rotate': 'Rotation',
+    'pdf.download': 'Télécharger',
+    'pdf.close': 'Fermer',
+    
+    // Hero Section
+    'hero.resume_title': 'Yessine Zghal - CV',
+    'hero.download': 'Télécharger',
     
     // Dynamic content translations
     'publications.paper_title': 'Une approche personnalisée basée sur les données pour prédire les niveaux de glucose sanguin chez les patients diabétiques de type 1 qui s\'exercent en conditions de vie libre',

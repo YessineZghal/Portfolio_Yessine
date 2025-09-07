@@ -1,0 +1,364 @@
+/* PDF Viewer Mobile Responsive Styles */
+
+/* Ensure PDFs display correctly on mobile */
+@media (max-width: 768px) {
+  /* PDF Modal adjustments for mobile */
+  .pdf-modal-mobile {
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* PDF iframe adjustments */
+  .pdf-iframe-mobile {
+    width: 100%;
+    min-height: 70vh;
+    border: none;
+  }
+  
+  /* Button adjustments for mobile */
+  .pdf-controls-mobile {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .pdf-controls-mobile button {
+    flex: 1;
+    min-height: 44px; /* Touch-friendly size */
+    font-size: 14px;
+  }
+
+  /* Contact Section Mobile Fixes */
+  #contact {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Publications Section Mobile Fixes */
+  #publications-awards {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ensure long text doesn't overflow */
+  .publication-card {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .publication-title {
+    line-height: 1.4;
+    hyphens: auto;
+  }
+
+  /* Contact buttons mobile adjustments */
+  .contact-button-mobile {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Contact section specific button fixes */
+  #contact button {
+    border-radius: 0.75rem; /* rounded-xl */
+    font-weight: 500; /* font-medium */
+    transition: all 0.2s ease-in-out;
+  }
+
+  #contact button:active {
+    transform: scale(0.98);
+  }
+
+  /* Social media buttons on mobile */
+  #contact .social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #contact .social-buttons button {
+    height: 3rem; /* 48px */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Quick contact buttons */
+  #contact .quick-contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  #contact .quick-contact-buttons button {
+    height: 3rem; /* 48px */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Booking button special styling */
+  #contact .booking-button {
+    height: 3.5rem; /* 56px */
+    border-radius: 0.75rem;
+  }
+
+  /* Prevent button text overflow */
+  #contact button span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+
+  /* Icon spacing in buttons */
+  #contact button svg {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+
+  /* Publication action buttons mobile */
+  .publication-action-btn {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* DOI text wrapping */
+  .doi-text {
+    word-break: break-all;
+    font-size: 0.75rem;
+  }
+}
+
+/* Ensure touch targets are large enough */
+@media (max-width: 768px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Touch manipulation for better touch response */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Prevent text selection on buttons */
+  button, .touch-target {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
+/* PDF loading states */
+.pdf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: #f8fafc;
+}
+
+.pdf-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dark mode adjustments */
+.dark .pdf-loading {
+  background: #1e293b;
+}
+
+.dark .pdf-loading-spinner {
+  border-color: #334155;
+  border-top-color: #60a5fa;
+}
+
+/* High DPI screen adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .pdf-viewer-container {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .pdf-modal-landscape {
+    height: 100vh;
+  }
+  
+  .pdf-modal-landscape .pdf-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .pdf-modal-landscape .pdf-controls {
+    padding: 0.5rem;
+  }
+
+  /* Contact section landscape adjustments */
+  #contact .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Publications landscape adjustments */
+  .publication-card {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+.pdf-viewer-container:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Focus states for mobile */
+@media (max-width: 768px) {
+  button:focus,
+  .touch-target:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    outline-style: solid;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .pdf-viewer-container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Mobile-specific typography improvements */
+@media (max-width: 640px) {
+  /* Contact section typography */
+  #contact h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #contact h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  /* Publications typography */
+  #publications-awards h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #publications-awards h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .publication-title {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  /* Better spacing for mobile */
+  .mobile-section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Contact section mobile improvements */
+  #contact .contact-card {
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  #contact .contact-item {
+    min-height: 60px;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  #contact .contact-item h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  #contact .contact-item p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  /* Button container improvements */
+  #contact .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  /* Ensure consistent button heights */
+  #contact button {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Fix gradient button on mobile */
+  #contact .gradient-button {
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  #contact .gradient-button:hover {
+    background: linear-gradient(135deg, #6d28d9 0%, #1d4ed8 100%);
+  }
+}
+
+/* Improve button spacing on mobile */
+@media (max-width: 768px) {
+  .button-group-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .button-group-mobile button {
+    width: 100%;
+    justify-content: center;
+  }
+}
